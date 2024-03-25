@@ -3,233 +3,129 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.top_navigation {
+.background {
     width: 474px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    top: 5px;
-}
-
-.back_icon {
-    width: 35px;
-    height: 35px;
-}
-
-.id {
-    font-weight: 550;
-    font-size: 18px;
-    text-align: center;
-    position: relative;
-    bottom: 5px;
-}
-
-.bluemark {
-    width: 20px;
-    height: 20px;
-    align-items: center;
-    margin-top: 10px;
-    top: 4px;
-    position: relative;
-    margin-left: 2px;
-}
-
-.meatballs_icon {
-    width: 35px;
-    height: 35px;
-}
-
-.box {
-    width: 474px;
-    height: 844px;
-    background-color: white;
-}
-
-.strong {
-    font-weight: 500;
-    font-size: 18px;
-}
-.normal {
-    font-weight: 350;
-    font-size: 14px;
-}
-.status {
-    display: flex;
-    justify-content: center;
-    margin-right: 40px;
-    gap: 50px;
-    position: absolute;
-    top: 89px;
-    left: 200px;
-}
-
-.status_value {
+    height: 569px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    background-color: #0080ff;
 }
 
-.profile {
-    margin: 20px;
-    margin-bottom: 10px;
-}
-
-.name {
-    font-weight: 500;
-    position: relative;
-    left: 20px;
-}
-
-.thread {
-    font-weight: 250;
-    font-size: 13px;
-    color: rgb(44, 44, 44);
-    position: relative;
-    left: 15px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-}
-
-.tag {
-    font-weight: 250;
-    font-size: 15px;
-    position: relative;
-    left: 20px;
-    margin-bottom: 2px;
-}
-
-.translation {
-    font-weight: 500;
-    font-size: 15px;
-    position: relative;
-    left: 20px;
-    margin-bottom: 5px;
-}
-
-button {
-    background-color: #efefef;
-    border: none;
-    border-radius: 30px;
-    height: 27px;
-    width: 75px;
-}
-
-.link {
-    font-weight: 500;
-    font-size: 15px;
-    position: relative;
-    left: 20px;
-    margin-bottom: 15px;
-}
-.middle_buttons {
-    position: relative;
+.top_navigation {
+    width: 474px;
     display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 5px;
+    right: 20px;
+}
+.total {
+    font-weight: 600;
+    position: relative;
     left: 20px;
-    width: 434px;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 32px;
 }
-
-.long_button1 {
-    background-color: #0095f6;
-    border-radius: 10px;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 15px;
-    height: 35px;
-    width: 190px;
-    text-align: center;
-    line-height: 35px;
-    margin-right: 7px;
-}
-.long_button2 {
-    background-color: #efefef;
-    border-radius: 10px;
-    color: black;
-    font-weight: 500;
-    font-size: 15px;
-    height: 35px;
-    width: 190px;
-    text-align: center;
-    line-height: 35px;
-    margin-right: 7px;
-}
-
-.short_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #efefef;
+.icon {
     height: 35px;
     width: 35px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.top_block {
+    width: 474px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.item {
+    background-color: #f5f5f5;
+    text-align: center;
+    height: 80px;
+    width: 120px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.block {
+    height: 30px;
+    width: 30px;
+    margin-top: 15px;
+}
+
+.text {
+    margin-top: -1px;
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 350;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.long_block {
+    width: 430px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow {
+    height: 30px;
+    width: 30px;
+    padding-top: 17px;
+}
+
+.short_block {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.picture {
+    height: 25px;
+    width: 25px;
+    background-color: #f5f5f5;
+    padding: 8px;
     border-radius: 10px;
 }
 
-.plus_friend {
-    max-width: 60%;
-    max-height: 60%;
+.center_menu {
+    margin: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
 }
 
-.middle_bar {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.icon {
-    width: 25px;
-}
-
-.posts1 {
-    display: flex;
-    width: 100%;
-    margin: 4px;
-}
-
-.posts2 {
-    display: flex;
-    width: 150px;
-    height: 150px;
-    margin: 4px;
-}
-
-.posts3 {
-    display: flex;
-    width: 100%;
-    margin: 4px;
-    z-index: 0;
-}
-
-.posting {
-    display: flex;
-    width: 150px;
-    height: 150px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-.bottom_navigation {
-    display: flex;
+.recent {
+    font-weight: 500;
     position: relative;
-    justify-content: space-around;
-    background-color: #ffffff;
-    width: 100%;
-    height: 100px;
-    z-index: 1;
-    bottom: 80px;
+    left: 20px;
+    font-size: 21px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-.bottom_icon {
-    width: 26px;
-    height: 26px;
-    position: relative;
-    top: 10px;
+.new {
+    background-color: #fff2f2;
+    border-radius: 20px;
+    color: #e24444;
+    height: 25px;
+    width: 80px;
+    text-align: center;
+    line-height: 26px;
+    font-weight: 550;
+    font-size: 14px;
+    margin-top: 22px;
+}
+
+.navigation {
+    width: 464px;
 }
