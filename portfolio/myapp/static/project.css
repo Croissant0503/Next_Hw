@@ -1,0 +1,63 @@
+.airbnb_image img {
+    width: 260px;
+    height: auto;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+}
+
+.toss_image img {
+    width: 250px;
+    height: auto;
+    position: absolute;
+    top: 50px;
+    left: 400px;
+}
+
+.cat img {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 500px;
+    left: 10px;
+}
+
+.apple img {
+    width: 70px;
+    height: auto;
+    position: absolute;
+    top: 550px;
+    left: 600px;
+}
+
+.bubble1 img {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 510px;
+    left: 200px;
+}
+
+.text {
+    font-weight: 500;
+    font-size: 12px;
+    position: absolute;
+    top: 552px;
+    left: 227px;
+}
+
+.bubble2 img {
+    width: 70px;
+    height: auto;
+    position: absolute;
+    top: 550px;
+    left: 500px;
+}
+
+.text2 {
+    font-weight: 500;
+    font-size: 12px;
+    position: absolute;
+    top: 550px;
+    left: 520px;
+}
