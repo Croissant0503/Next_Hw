@@ -3,18 +3,55 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Article</title>
+        <title>Article Detail</title>
+        <style>
+            header {
+                margin-bottom: 20px;
+            }
+        </style>
     </head>
     <body>
+        <header>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">로그아웃</a>
+            {% else %}
+            <a href="{% url 'login' %}">로그인</a>
+            {% endif %}
+        </header>
         <h2>글 상세 페이지</h2>
         <div>
             <h3>제목</h3>
-            <div>{{article.title}}</div>
+            <div>{{ article.title }}</div>
         </div>
         <div>
             <h3>글 내용</h3>
-            <div>{{article.content}}</div>
+            <div>{{ article.content }}</div>
         </div>
+        <div>
+            <h3>작성자</h3>
+            <div>{{ article.author.username }}</div>
+        </div>
+
+        <h3>댓글</h3>
+        <form method="post" action="">
+            {% csrf_token %}
+            <textarea name="comment_content" rows="3" required></textarea>
+            <button type="submit">댓글 작성</button>
+        </form>
+        <ul>
+            {% for comment in comments %}
+            <li>{{ comment.content }} - <a href="{% url 'delete_comment' comment.id %}">삭제</a></li>
+            {% endfor %}
+        </ul>
+        <div>
+            <h3>마지막으로 열람한 시간:</h3>
+            <div>{{ article.last_viewed|date:"Y-m-d H:i:s" }}</div>
+        </div>
+        <div>
+            <h3>마지막으로 열람한 사용자:</h3>
+            <div>{{ article.last_viewer.username }}</div>
+        </div>
+
         <a href="{% url 'list' %}">리스트 보러 가기</a>
     </body>
 </html>
