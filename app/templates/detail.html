@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block title %} Detail! {% endblock %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+{% endblock %} {% block content %}
+<div class="detail-post_container">
+    <div class="detail_title">제목: {{ post.title }}</div>
+    <div class="detail_content">내용: {{ post.content }}</div>
+    <div class="detail_content">작성자: {{ post.author.username }}</div>
+    <div class="detail-post_btn">
+        <a href="{% url 'home' %}">홈 화면</a>
+        {% if user.is_authenticated and user.pk == post.author.pk %}
+        <a href="{% url 'edit' post.pk %}">수정하기</a>
+        <a href="{% url 'delete' post.pk %}">삭제하기</a>
+        {% endif %}
+        <span class="like-count">좋아요 수 {{ post.likes.count }}</span>
+    </div>
+    <input type="text" id="comment-content" />
+    <button id="add-comment-button">댓글 작성</button>
+    <button class="like-button">좋아요</button>
+    <ul id="comments-list">
+        {% for comment in post.comments.all %}
+        <li id="comment-{{ comment.id }}">
+            <span>{{ comment.content }} </span>
+            <span>{{ comment.author.username }} </span>
+            {% if user.pk == comment.author.pk and user.is_authenticated %}
+            <button class="edit-comment-button" data-id="{{ comment.id }}">수정</button>
+            <button class="delete-comment-button" data-id="{{ comment.id }}">삭제</button>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const likeButton = document.querySelector('.like-button');
+    const likeCount = document.querySelector('.like-count');
+    const addCommentButton = document.getElementById('add-comment-button');
+    const commentContent = document.getElementById('comment-content');
+    const commentsList = document.getElementById('comments-list');
+
+    const handleLike = () => {
+        axios
+            .post('/like', { post_pk: '{{post.pk}}' })
+            .then((res) => (likeCount.innerHTML = '좋아요 수 ' + res.data.like_count));
+    };
+
+    const addComment = () => {
+        const content = commentContent.value;
+        axios.post('/add_comment', { post_pk: '{{ post.pk }}', content: content }).then((res) => {
+            const comment = res.data;
+            const commentElement = `
+                    <li id="comment-${comment.id}">
+                        <span>${comment.content} </span>
+                        <span>${comment.author} </span>
+                        <button class="edit-comment-button" data-id="${comment.id}">수정</button>
+                        <button class="delete-comment-button" data-id="${comment.id}">삭제</button>
+                    </li>
+                `;
+            commentsList.insertAdjacentHTML('beforeend', commentElement);
+            commentContent.value = '';
+            attachCommentHandlers();
+        });
+    };
+
+    const deleteComment = (commentId) => {
+        axios.post(`/delete_comment/${commentId}`).then(() => {
+            const commentElement = document.getElementById(`comment-${commentId}`);
+            commentElement.remove();
+        });
+    };
+
+    const editComment = (commentId) => {
+        const newContent = prompt('새로운 댓글 내용을 입력하세요:');
+        if (newContent) {
+            axios.post(`/edit_comment/${commentId}`, { content: newContent }).then((res) => {
+                const commentElement = document.getElementById(`comment-${commentId}`);
+                commentElement.querySelector('span').textContent = res.data.content;
+            });
+        }
+    };
+
+    const attachCommentHandlers = () => {
+        document.querySelectorAll('.delete-comment-button').forEach((button) => {
+            button.removeEventListener('click', handleDeleteComment);
+            button.addEventListener('click', handleDeleteComment);
+        });
+
+        document.querySelectorAll('.edit-comment-button').forEach((button) => {
+            button.removeEventListener('click', handleEditComment);
+            button.addEventListener('click', handleEditComment);
+        });
+    };
+
+    const handleDeleteComment = (event) => {
+        const commentId = event.target.getAttribute('data-id');
+        deleteComment(commentId);
+    };
+
+    const handleEditComment = (event) => {
+        const commentId = event.target.getAttribute('data-id');
+        editComment(commentId);
+    };
+
+    likeButton.addEventListener('click', handleLike);
+    addCommentButton.addEventListener('click', addComment);
+    attachCommentHandlers();
+</script>
+{% endblock %}
