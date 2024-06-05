@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Elice+Digital+Dream:wght@400;700&display=swap');
+
+body {
+    font-family: 'Elice Digital Dream', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1,
+h2 {
+    color: #333;
+    font-weight: 700; /* 헤더 폰트를 굵게 설정 */
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+    font-size: 20px;
+}
+
+.post p {
+    font-size: 16px;
+    color: #666;
+}
+
+.post img {
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px; /* 이미지의 너비를 200px로 설정 */
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold; /* 버튼 텍스트를 굵게 설정 */
+    font-family: 'Elice Digital Dream', sans-serif;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.custom-file-upload {
+    background-color: white;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 5px 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold; /* 버튼 텍스트를 굵게 설정 */
+    font-family: 'Elice Digital Dream', sans-serif;
+}
+
+.custom-file-upload:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    max-width: 600px; /* 텍스트 영역과 입력 필드의 최대 너비를 설정 */
+}
+
+.form-group input,
+.form-group textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Elice Digital Dream', sans-serif;
+}
+
+textarea {
+    height: 100px; /* 텍스트 영역의 높이를 조정 */
+}
+
+.preview {
+    margin-bottom: 20px;
+}
+
+.preview img {
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px; /* 프리뷰 이미지의 너비를 200px로 설정 */
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* 버튼 간의 간격을 설정 */
+    margin-bottom: 20px; /* 버튼과 다음 요소 간의 간격을 설정 */
+}
