@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Main from './main'; // 정확한 대소문자 사용
-import Detail from './detail';
+import Main from './Main';
+import Detail from './Detail';
 
 function App() {
     return (

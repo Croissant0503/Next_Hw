@@ -19,7 +19,7 @@ const Main = () => {
     }, []);
 
     const handleImageChange = (e) => {
-        const files = Array.from(e.target.files);
+        const files = Array.from(e.target.files).slice(0, 3); // 최대 3개의 파일만 허용
         const newImages = files.map((file) => URL.createObjectURL(file));
         setImages(files);
         setPreviewImages(newImages);
@@ -69,10 +69,10 @@ const Main = () => {
                 <div key={index} className="post">
                     <h2>{post.title}</h2>
                     <p>{post.content}</p>
-                    <div>
+                    <div className="post-images">
                         {post.images && post.images.length > 0 ? (
                             post.images.map((image, imgIndex) => (
-                                <img key={imgIndex} src={image} alt={`Post ${index} Image ${imgIndex}`} width="100" />
+                                <img key={imgIndex} src={image} alt={`Post ${index} Image ${imgIndex}`} />
                             ))
                         ) : (
                             <p>No images available</p>
@@ -107,9 +107,7 @@ const Main = () => {
             />
             <div className="preview">
                 {previewImages.length > 0 &&
-                    previewImages.map((preview, index) => (
-                        <img key={index} src={preview} alt={`Preview ${index}`} width="100" />
-                    ))}
+                    previewImages.map((preview, index) => <img key={index} src={preview} alt={`Preview ${index}`} />)}
             </div>
         </div>
     );
